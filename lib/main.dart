@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/animated/container_animated.dart';
 import 'package:flutter_sample/expanded.dart';
 import 'package:flutter_sample/list_view.dart';
 
@@ -50,7 +51,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   return ListViewPage();
                 }));
               },
-              child: Text('ListView示例'))
+              child: Text('ListView示例')),
+          OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AnimatedSamplePage();
+                }));
+              },
+              child: Text('Animated示例'))
         ],
       ),
     );
