@@ -24,7 +24,7 @@ class HttpUtil {
     map['mobileType']=0;
     map['Username']=name;
     map['Password']=password;
-    return _dio.post('api/v2/phone/login',data: map);
+    return _dio.post('login',data: map);
   }
 
 }

@@ -3,6 +3,8 @@ import 'package:flutter_sample/animated/container_animated.dart';
 import 'package:flutter_sample/expanded.dart';
 import 'package:flutter_sample/list_view.dart';
 import 'package:flutter_sample/login.dart';
+import 'package:flutter_sample/utils/scanner_utils.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(MyApp());
@@ -66,7 +68,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   return LoginPage();
                 }));
               },
-              child: Text('Login示例'))
+              child: Text('Login示例')),
+          OutlinedButton(
+              onPressed: () async {
+                var permission = await Permission.camera.request();
+                if (permission.isGranted) {
+                  var code = await ScannerUtil.scanSource(context);
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text('扫码结果'),
+                          content: Text(
+                            code,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
+                          actions: [
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text('关闭'),
+                            )
+                          ],
+                        );
+                      });
+                }
+              },
+              child: Text('扫码示例'))
         ],
       ),
     );

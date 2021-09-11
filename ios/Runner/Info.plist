@@ -41,5 +41,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>程序扫码功能需要使用您的摄像机,拒绝将无法进行扫码</string>
 </dict>
 </plist>
