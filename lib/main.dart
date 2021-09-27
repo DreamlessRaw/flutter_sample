@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/animated/builder_animated.dart';
 import 'package:flutter_sample/animated/container_animated.dart';
+import 'package:flutter_sample/animated/cross_fade_animated.dart';
+import 'package:flutter_sample/animated/rotation_transition.dart';
 import 'package:flutter_sample/expanded.dart';
 import 'package:flutter_sample/list_view.dart';
 import 'package:flutter_sample/login.dart';
@@ -14,11 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter 例子',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: '主页'),
     );
   }
 }
@@ -62,6 +65,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 }));
               },
               child: Text('Animated示例')),
+          OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CrossFadeAnimatedPage();
+                }));
+              },
+              child: Text('AnimatedCrossFade示例')),
+          OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return BuilderAnimatedPage();
+                }));
+              },
+              child: Text('AnimatedBuilder示例')),
+          OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return RotationTransitionPage();
+                }));
+              },
+              child: Text('旋转示例')),
           OutlinedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
