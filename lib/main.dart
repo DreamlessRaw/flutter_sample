@@ -9,6 +9,8 @@ import 'package:flutter_sample/login.dart';
 import 'package:flutter_sample/utils/scanner_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'animated/switcher_animated.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -86,6 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 }));
               },
               child: Text('旋转示例')),
+          OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AnimatedSwitcherPage();
+                }));
+              },
+              child: Text('AnimatedSwitcher示例')),
           OutlinedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {

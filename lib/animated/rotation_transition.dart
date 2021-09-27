@@ -57,7 +57,7 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
                 child: Center(
                   child: Text(
                     '5',
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                 ),
               ),
@@ -69,6 +69,12 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
                 width: 100.0,
                 height: 100.0,
                 color: Colors.yellow,
+                child: Center(
+                  child: Text(
+                    '2',
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                ),
               ),
             ),
             RotationTransition(
@@ -78,9 +84,22 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
                 width: 100.0,
                 height: 100.0,
                 color: Colors.yellow,
+                child: Center(
+                  child: Text(
+                    '0',
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                ),
               ),
             ),
           ],
         ));
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
   }
 }

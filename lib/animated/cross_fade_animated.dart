@@ -12,12 +12,13 @@ class CrossFadeAnimatedPage extends StatefulWidget {
 
 class _CrossFadeAnimatedPageState extends State<CrossFadeAnimatedPage> {
   bool _first = false;
+  late Timer _timer;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer.periodic(Duration(seconds: 3), (timer) {
+    _timer = Timer.periodic(Duration(seconds: 3), (timer) {
       setState(() {
         _first = !_first;
       });
@@ -49,5 +50,12 @@ class _CrossFadeAnimatedPageState extends State<CrossFadeAnimatedPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer.cancel();
+    super.dispose();
   }
 }
