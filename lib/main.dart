@@ -9,7 +9,10 @@ import 'package:flutter_sample/login.dart';
 import 'package:flutter_sample/utils/scanner_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'animated/hero/hero_one.dart';
+import 'animated/size_animated.dart';
 import 'animated/switcher_animated.dart';
+import 'basis/TabBarPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +26,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: '主页'),
+      home: HeroOnePage(),
+      // home: MyHomePage(title: '主页'),
     );
   }
 }
@@ -95,6 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 }));
               },
               child: Text('AnimatedSwitcher示例')),
+          OutlinedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AnimatedSizePage();
+                }));
+              },
+              child: Text('AnimatedSize示例')),
           OutlinedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
